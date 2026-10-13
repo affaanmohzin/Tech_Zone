@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop smartphones, laptops, audio, and everyday tech at TechZone. Great gear, fair prices, and friendly local support.">
+  <meta name="theme-color" content="#ffffff">
+  <title>TechZone — Electronics Web Store</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="brand" href="#home" aria-label="TechZone home">
+        <span class="brand-mark" aria-hidden="true"><img class="brand-icon" src="favicon.svg" alt=""></span>
+        <span>Tech<span class="brand-accent">Zone</span></span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#products">Shop</a>
+        <a href="#cart-drawer" data-open-cart>Cart</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="cart-button" id="cart-toggle" type="button" aria-label="Open shopping cart">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 1.9-1.4L22 8H6M10 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg>
+        <span>Cart</span>
+        <span class="cart-count" id="cart-count" aria-live="polite">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="eyebrow-dot"></span> Your everyday tech destination</span>
+          <h1>Upgrade Your<br><span>Tech Experience</span></h1>
+          <p>Discover the latest devices and accessories, handpicked for how you work, create, and unwind.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#products">Shop Now <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="#about">Why TechZone <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-assurances" aria-label="Shopping benefits">
+            <span><span class="check-icon">✓</span> Trusted tech</span>
+            <span><span class="check-icon">✓</span> Helpful support</span>
+            <span><span class="check-icon">✓</span> Secure demo checkout</span>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="A curated collection of modern electronics">
+          <div class="hero-glow"></div>
+          <div class="hero-image-frame">
+            <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="Modern electronics displayed on a desk" fetchpriority="high">
+          </div>
+          <div class="floating-note">
+            <span class="note-icon" aria-hidden="true">✦</span>
+            <span><strong>Good tech, made simple</strong><small>Find the right fit for you</small></span>
+          </div>
+          <div class="hero-image-caption">Thoughtfully picked. Ready for everyday.</div>
+        </div>
+      </div>
+      <div class="container trust-strip">
+        <span>Find your next favorite</span>
+        <span class="trust-divider"></span>
+        <span>Phones</span><span>Computing</span><span>Audio</span><span>Smart living</span>
+      </div>
+    </section>
+
+    <section class="products-section section-space" id="products">
+      <div class="container">
+        <div class="section-heading products-heading">
+          <div>
+            <span class="eyebrow">THE TECHZONE EDIT</span>
+            <h2>Featured Products</h2>
+            <p>Everyday essentials and upgrades worth getting excited about.</p>
+          </div>
+          <label class="search-box" for="product-search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
+            <input id="product-search" type="search" placeholder="Search products..." autocomplete="off">
+            <span class="sr-only">Search products</span>
+          </label>
+        </div>
+
+        <div class="product-toolbar">
+          <div class="filter-list" id="category-filters" aria-label="Filter products by category">
+            <button class="filter-button active" type="button" data-category="all" aria-pressed="true">All products</button>
+            <button class="filter-button" type="button" data-category="smartphones" aria-pressed="false">Smartphones</button>
+            <button class="filter-button" type="button" data-category="laptops" aria-pressed="false">Laptops</button>
+            <button class="filter-button" type="button" data-category="audio" aria-pressed="false">Audio</button>
+            <button class="filter-button" type="button" data-category="wearables" aria-pressed="false">Smartwatches</button>
+            <button class="filter-button" type="button" data-category="accessories" aria-pressed="false">Accessories</button>
+          </div>
+          <span class="result-count" id="result-count" aria-live="polite"></span>
+        </div>
+
+        <div class="product-grid" id="product-grid" aria-live="polite"></div>
+        <p class="no-results" id="no-results" hidden>No products match that search. Try another name or category.</p>
+      </div>
+    </section>
+
+    <section class="benefits-section section-space" id="about">
+      <div class="container">
+        <div class="section-heading centered-heading">
+          <span class="eyebrow">THE TECHZONE DIFFERENCE</span>
+          <h2>Why Choose Us</h2>
+          <p>A better way to find the tech that fits your life.</p>
+        </div>
+        <div class="benefit-grid">
+          <article class="benefit-card">
+            <span class="benefit-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="m12 3 8 4v5c0 5-3.4 8-8 9-4.6-1-8-4-8-9V7l8-4Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg>
+            </span>
+            <h3>Quality you can trust</h3>
+            <p>Thoughtful picks from reliable brands, so you can shop with confidence.</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 16 0v5a2 2 0 0 1-2 2h-2v-6h4M4 13h4v6H6a2 2 0 0 1-2-2v-4Z"/></svg>
+            </span>
+            <h3>Friendly expert advice</h3>
+            <p>Get straightforward recommendations from people who know their tech.</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 7h11v11H3zM14 11h4l3 3v4h-7z"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="17.5" cy="19" r="1.5"/></svg>
+            </span>
+            <h3>Easy, reliable delivery</h3>
+            <p>Get your new gear delivered with clear updates from checkout to doorstep.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section section-space">
+      <div class="container about-layout">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Team collaborating around technology at work" loading="lazy">
+          <span class="image-label">Technology for real life</span>
+        </div>
+        <div class="about-copy">
+          <span class="eyebrow">ABOUT TECHZONE</span>
+          <h2>Good technology should feel effortless.</h2>
+          <p>TechZone makes finding your next device simple. We bring together useful products, clear information, and genuine support, so you can spend less time comparing and more time enjoying your tech.</p>
+          <a class="text-link" href="#contact">Talk to our team <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section section-space" id="contact">
+      <div class="container contact-layout">
+        <div>
+          <span class="eyebrow">WE'RE HERE TO HELP</span>
+          <h2>Have a question?</h2>
+          <p>Need a recommendation or a hand with your order? Our team would be happy to help.</p>
+        </div>
+        <div class="contact-card">
+          <span class="contact-icon" aria-hidden="true">✉</span>
+          <div><strong>Email our team</strong><a href="mailto:hello@techzone.example">hello@techzone.example</a></div>
+          <a class="contact-arrow" href="mailto:hello@techzone.example" aria-label="Email TechZone">→</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-labelledby="cart-title" aria-hidden="true">
+    <div class="cart-drawer-header">
+      <div><span class="eyebrow">YOUR SELECTION</span><h2 id="cart-title">Shopping cart</h2></div>
+      <button class="icon-button" id="cart-close" type="button" aria-label="Close shopping cart">×</button>
+    </div>
+    <div class="cart-drawer-items" id="cart-items"></div>
+    <div class="cart-drawer-footer">
+      <div class="drawer-total"><span>Subtotal</span><strong id="cart-subtotal">PKR 0</strong></div>
+      <div class="drawer-total"><span>Delivery</span><strong class="free-delivery">Free</strong></div>
+      <div class="drawer-total drawer-grand-total"><span>Total</span><strong id="cart-total">PKR 0</strong></div>
+      <a class="button button-primary drawer-checkout" href="checkout.html" id="go-to-checkout">Continue to checkout <span aria-hidden="true">→</span></a>
+      <p>Delivery is free. Demo checkout only.</p>
+    </div>
+  </aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true"><img class="brand-icon" src="favicon.svg" alt=""></span><span>Tech<span class="brand-accent">Zone</span></span></a>
+          <p>Good tech, fair prices, and friendly advice. Find what works for you.</p>
+        </div>
+        <div class="footer-links">
+          <strong>Explore</strong>
+          <a href="#home">Home</a><a href="#products">Products</a><a href="#about">About</a><a href="#contact">Contact</a>
+        </div>
+        <div class="footer-links">
+          <strong>Shop by category</strong>
+          <a href="#products" data-footer-category="smartphones">Smartphones</a>
+          <a href="#products" data-footer-category="laptops">Laptops</a>
+          <a href="#products" data-footer-category="audio">Audio</a>
+          <a href="#products" data-footer-category="accessories">Accessories</a>
+        </div>
+        <div class="footer-contact">
+          <strong>Need a hand?</strong>
+          <p>We're happy to help you find the right fit.</p>
+          <a href="mailto:hello@techzone.example">hello@techzone.example</a>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 TechZone. All rights reserved.</span><span>Made for better everyday tech.</span></div>
+    </div>
+  </footer>
+</body>
+</html>
